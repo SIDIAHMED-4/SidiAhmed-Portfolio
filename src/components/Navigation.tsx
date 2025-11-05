@@ -44,9 +44,9 @@ export const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-background/80 backdrop-blur-lg shadow-md' : 'bg-transparent'
-      } `}
+      }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <motion.a
             href="#home"
@@ -67,7 +67,7 @@ export const Navigation = () => {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className='px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base font-medium text-foreground/80 hover:bg-secondary/50 transition-all '
+                className="px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary/50 transition-all"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -85,7 +85,7 @@ export const Navigation = () => {
               onClick={() => setIsDark(!isDark)}
               className="ml-2"
             >
-              {isDark ? <Sun className="h-5 w-5   " /> : <Moon className="h-5 w-5" />}
+              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           </div>
 
@@ -96,14 +96,14 @@ export const Navigation = () => {
               size="icon"
               onClick={() => setIsDark(!isDark)}
             >
-              {isDark ? <Sun className="h-5 w-5 " /> : <Moon className="h-5 w-5" />}
+              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className='h-6 w-6 '/> : <Menu className='h-6 w-6' />}
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -123,7 +123,7 @@ export const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="block px-12 py-3 rounded-lg text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary/50 transition-all"
+                  className="block px-4 py-3 rounded-lg text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary/50 transition-all"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection(item.href);
