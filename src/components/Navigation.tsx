@@ -67,7 +67,7 @@ export const Navigation = () => {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className={`px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary/50 transition-all ${isDark && 'text-primary'}`}
+                className='px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base font-medium text-foreground/80 hover:bg-secondary/50 transition-all '
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -85,7 +85,7 @@ export const Navigation = () => {
               onClick={() => setIsDark(!isDark)}
               className="ml-2"
             >
-              {isDark ? <Sun className="h-5 w-5 text-primary  " /> : <Moon className="h-5 w-5" />}
+              {isDark ? <Sun className="h-5 w-5   " /> : <Moon className="h-5 w-5" />}
             </Button>
           </div>
 
@@ -96,14 +96,14 @@ export const Navigation = () => {
               size="icon"
               onClick={() => setIsDark(!isDark)}
             >
-              {isDark ? <Sun className="h-5 w-5 text-primary" /> : <Moon className="h-5 w-5" />}
+              {isDark ? <Sun className="h-5 w-5 " /> : <Moon className="h-5 w-5" />}
             </Button>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className='h-6 w-6 text-primary'/> : <Menu className='h-6 w-6  text-primary' />}
+              {isMobileMenuOpen ? <X className='h-6 w-6 '/> : <Menu className='h-6 w-6' />}
             </Button>
           </div>
         </div>
