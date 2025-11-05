@@ -35,9 +35,11 @@ export const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
+    setIsMobileMenuOpen(false);
+    setTimeout(() => {
       element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
+    }, 300); // تأخير بسيط حتى تغلق القائمة
+  }
   };
 
   return (
