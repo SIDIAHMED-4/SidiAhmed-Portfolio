@@ -1,19 +1,100 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sidi Ahmed - Front-End Developer Portfolio</title>
-    <meta name="description" content="Front-End Developer with 1 year of experience. Specializing in React, Tailwind CSS, and modern web development. Built 30+ projects." />
+    <meta
+      name="description"
+      content="Front-End Developer with 1 year of experience. Specializing in React, Tailwind CSS, and modern web development. Built 30+ projects."
+    />
     <meta name="author" content="Sidi Ahmed" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <meta property="og:title" content="Sidi Ahmed - Front-End Developer" />
-    <meta property="og:description" content="Front-End Developer specializing in React and modern web technologies" />
+    <meta
+      property="og:description"
+      content="Front-End Developer specializing in React and modern web technologies"
+    />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function () {
+        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+          window.chatbase = (...arguments) => {
+            if (!window.chatbase.q) {
+              window.chatbase.q = [];
+            }
+            window.chatbase.q.push(arguments);
+          };
+          window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop) {
+              if (prop === "q") {
+                return target.q;
+              }
+              return (...args) => target(prop, ...args);
+            },
+          });
+        }
+        const onLoad = function () {
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "dm-oMvieRoFE6oivWBLea";
+          script.domain = "www.chatbase.co";
+          document.body.appendChild(script);
+        };
+        if (document.readyState === "complete") {
+          onLoad();
+        } else {
+          window.addEventListener("load", onLoad);
+        }
+      })();
+    </script>
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/+22231401477"
+      class="whatsapp_float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+        alt="WhatsApp"
+        class="whatsapp_icon"
+      />
+    </a>
+
+    <style>
+      .whatsapp_float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 13px;
+        right: 80px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+      }
+
+      .whatsapp_icon {
+        width: 35px;
+        height: 35px;
+      }
+
+      .whatsapp_float:hover {
+        transform: scale(1.1);
+        transition: 0.2s;
+      }
+    </style>
   </body>
 </html>
