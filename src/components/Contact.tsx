@@ -6,6 +6,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Linkedin, Github, Mail } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+
 
 export const Contact = () => {
   const [ref, inView] = useInView({
@@ -18,25 +21,43 @@ export const Contact = () => {
     email: '',
     message: '',
   });
+  const formRef = useRef<HTMLFormElement | null>(null);
+
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      toast.error('Please fill in all fields');
-      return;
-    }
+  e.preventDefault();
 
-    if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      toast.error('Please enter a valid email address');
-      return;
-    }
+  if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    toast.error("Please fill in all fields");
+    return;
+  }
 
-    // Success simulation
-    toast.success('Message sent successfully! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-  };
+  if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    toast.error("Please enter a valid email address");
+    return;
+  }
+
+  if (!formRef.current) return;
+
+  emailjs
+    .sendForm(
+      "service_ekekn6e",
+      "template_vs20h1a",
+      formRef.current,
+      "U6QOg6alwa7Ad-n7R"
+    )
+    .then(
+      () => {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      },
+      (error) => {
+        console.error(error);
+        toast.error("Failed to send message. Try again later.");
+      }
+    );
+};
+
 
   const socialLinks = [
     {
@@ -86,11 +107,13 @@ export const Contact = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+
                 <div>
                   <Input
                     type="text"
-                    placeholder="Your Name"
+                    name="user_name"
+  placeholder="Your Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full"
@@ -100,6 +123,7 @@ export const Contact = () => {
                 <div>
                   <Input
                     type="email"
+                      name="user_email"
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -109,6 +133,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <Textarea
+                   name="message"
                     placeholder="Your Message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -116,7 +141,7 @@ export const Contact = () => {
                     required
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full glow-effect">
+                <Button type="submit" className="w-full glow-effect">
                   Send Message
                 </Button>
               </form>

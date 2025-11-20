@@ -3,8 +3,6 @@ import { useInView } from 'react-intersection-observer';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import ecommerceImage from '@/assets/project-ecommerce.png';
-import dashboardImage from '@/assets/project-dashboard.jpg';
-import portfolioImage from '@/assets/project-portfolio.jpg';
 import ticTacToe from '@/assets/tic-tac-toe-ai.png';
 import reactNewsfeedApp from '@/assets/react-newsfeed-app.png';
 import SimpleOmeletteRecipe from '@/assets/Simple-Omelette-Recipe.png';
@@ -28,7 +26,7 @@ export const Projects = () => {
   const projects = [
     {
       title: 'E-Commerce Platform',
-      description: 'This is a modern **E-Commerce website** built using **React** and **Firebase**, designed to provide a smooth, fast, and multilingual shopping experience in **Arabic and English**. The project was developed as a **graduation project**, focusing on clean UI, responsive design, and functional integration with Firebase services.',
+      description: 'This is a modern  E-Commerce website built using React and Firebase, designed to provide a smooth, fast, and multilingual shopping experience in   Arabic and English  . The project was developed as a   graduation project  , focusing on clean UI, responsive design, and functional integration with Firebase services.',
       image: ecommerceImage,
       goToVercel : 'https://e-commerce-website-two-orpin.vercel.app/',
       goToGithub : 'https://github.com/SIDIAHMED-4/E-Commerce-Website-',
@@ -44,7 +42,7 @@ export const Projects = () => {
     },
     {
       title: 'Calculator',
-      description: '**Calculator** is a simple web app using **HTML, CSS, and JavaScript**. It performs basic operations like addition, subtraction, multiplication, and division. The design is clean and responsive for smooth use on all devices. Future updates may add advanced functions, history tracking, and theme customization. 🚀 🚀',
+      description: '  Calculator   is a simple web app using   HTML, CSS, and JavaScript  . It performs basic operations like addition, subtraction, multiplication, and division. The design is clean and responsive for smooth use on all devices. Future updates may add advanced functions, history tracking, and theme customization. 🚀 🚀',
       image: calculator,
       goToVercel: 'https://calculator-blush-mu.vercel.app/',
       goToGithub : 'https://github.com/SIDIAHMED-4/Calculator',
@@ -68,7 +66,7 @@ export const Projects = () => {
     },
     {
       title: 'Age Calculator',
-      description: '**Age Calculator** is a simple web app built with HTML, CSS, and JavaScript. It calculates your exact age in years, months, and days based on your birthdate. The app features a clean UI, responsive design, and accurate calculations. Future improvements include multi-language support and enhanced user experience. 🚀',
+      description: '  Age Calculator   is a simple web app built with HTML, CSS, and JavaScript. It calculates your exact age in years, months, and days based on your birthdate. The app features a clean UI, responsive design, and accurate calculations. Future improvements include multi-language support and enhanced user experience. 🚀',
       image: ageCalculator,
       goToVercel: 'https://age-calculator-nu-puce.vercel.app/',
       goToGithub : 'https://github.com/SIDIAHMED-4/Age-Calculator',
@@ -84,7 +82,7 @@ export const Projects = () => {
     },
     {
       title:  'Calorie Tracker',
-      description: ' ** Calorie Tracker ** Project A modern React + Vite demo application with a small Node.js server that allows users to track, add, edit, and delete daily calorie records. This project demonstrates full CRUD operations and how to integrate a React frontend with a lightweight backend API.',
+      description: '    Calorie Tracker    Project A modern React + Vite demo application with a small Node.js server that allows users to track, add, edit, and delete daily calorie records. This project demonstrates full CRUD operations and how to integrate a React frontend with a lightweight backend API.',
       image: CalorieTracker,
       goToVercel: 'https://calorie-tracker-app-orpin.vercel.app/',
       goToGithub : 'https://github.com/SIDIAHMED-4/calorie-tracker-app',
@@ -149,7 +147,7 @@ export const Projects = () => {
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+              transition={{ delay: 0.2 + index *  0.1, duration: 0.5 }}
               className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-2xl border border-border card-hover group"
             >
               <div className="relative overflow-hidden h-48 sm:h-56">

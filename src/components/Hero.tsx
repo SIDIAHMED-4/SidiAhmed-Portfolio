@@ -1,26 +1,30 @@
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import heroBg from "@/assets/hero-bg.jpg";
-import profileImage from '@/assets/personelPic.jpg';
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import profileImage from "@/assets/personelPic.jpg";
 
 export const Hero = () => {
   const scrollToContact = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector("#contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden pt-20">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center  relative overflow-hidden pt-20"
+    >
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none"
-      style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}>
+      <div
+        className="absolute inset-0 overflow-hidden pointer-events-none bg-[url('/hero-bg.jpg')] 
+        dark:bg-[url('/heroBgDark.png')]"
+        style={{
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
@@ -71,14 +75,27 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
+            className="flex flex-col sm:flex-row justify-center items-center gap-4"
           >
+          
             <Button
               size="lg"
-              className="text-base md:text-lg px-6 md:px-8 py-4 md:py-6 h-auto font-semibold glow-effect group"
+              className="text-base sm:text-lg md:text-xl px-6 sm:px-8 py-3 sm:py-4 h-auto font-semibold glow-effect group transition-all duration-300 hover:scale-105"
               onClick={scrollToContact}
             >
               Contact Me
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+
+          
+            <Button
+              size="lg"
+              className="text-base sm:text-lg md:text-xl px-6 sm:px-8 py-3 sm:py-4 h-auto font-semibold glow-effect group transition-all duration-300 hover:scale-105"
+            >
+              <a href="/cv.pdf" download className="flex items-center">
+                Download CV
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </motion.div>
         </div>
