@@ -40,13 +40,13 @@ export const Stats = () => {
   const stats = [
     {
       icon: Award,
-      value: 35,
+      value: 25,
       label: 'Certificates Earned',
       suffix: '+',
     },
     {
       icon: FolderGit2,
-      value: 30,
+      value: 20,
       label: 'Projects Built',
       suffix: '+',
     },
